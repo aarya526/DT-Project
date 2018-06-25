@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+<!-- Go TO Cart-->
+<view-state id="GoToCartItems" view="/WEB-INF/jsp/flows/CartItems.jsp">
+ <transition on = "BackToGallery"  to = "BackToGallery"/>
+ <transition on = "GoToCheckout" to = "GoToCheckout"/>
+</view-state>
+
+<view-state id="BackToGallery" view="externalRedirect:/Gallery"/>
+
+<view-state id="GoToCheckout" view="/WEB-INF/jsp/flows/Checkout.jsp">
+ <transition on = "GoToCartItems" to = "BackToCart"/>
+ <transition on = "GoToConfirmDetails" to = "GoToConfirmDetails"/>
+</view-state>
+
+<end-state id="GoToConfirmDetails"  view="/WEB-INF/jsp/flows/ConfirmDetails.jsp"/>
+
+
+</flow>

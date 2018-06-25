@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+<!-- Go TO Cart-->
+<var name="cart" class="com.monk.controller.MainController" />	
+	
+
+	
+<view-state id = "page1" view="/WEB-INF/jsp/flows/Page1.jsp">
+ <transition on = "BackToGallery" to = "BackToGallery"/>
+ <transition on = "page2" to="page2" />
+</view-state>
+
+<view-state id="BackToGallery" view = "externalRedirect:/gallery"/>
+
+<view-state id = "page2" view = "/WEB-INF/jsp/flows/Page2.jsp">
+ <transition on = "page1" to = "page1" />
+ <transition on = "page3" to = "page3"/>
+</view-state>
+
+<view-state id = "page3" view = "/WEB-INF/jsp/flows/Page3.jsp">
+ <transition on = "page2" to = "page2"/>
+ <transition on = "page4" to = "page4"/>
+</view-state>
+
+
+<end-state id = "page4" view = "/WEB-INF/jsp/flows/Page4.jsp"/>
+
+</flow>
